@@ -18,13 +18,13 @@ const Category = (props) => {
       {(title === "sort" || title === "cuisines" || title === "more") && (
         <FontAwesome
           name="sort-down"
-          size={16}
+          size={14}
           color="black"
           style={styles.rightIcon}
         />
       )}
       {title === "rating 4.0" && (
-        <AntDesign name="plus" size={12} color="black" />
+        <AntDesign name="plus" size={10} color="black" />
       )}
     </View>
   );
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderRadius: 13,
     borderColor: "lightgray",
-    padding: 10,
+    padding: 7,
     alignItems: "center",
     justifyContent: "center",
     marginLeft: 10,
@@ -49,12 +49,12 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   title: {
-    fontSize: 14,
+    fontSize: 12,
     textTransform: "capitalize",
     fontWeight: "400",
   },
   rightIcon: {
     marginLeft: 7,
-    marginTop: -10,
+    marginTop: -7,
   },
 });
