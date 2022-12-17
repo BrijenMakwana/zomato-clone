@@ -21,7 +21,6 @@ export default DishComponent;
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    padding: 5,
     marginTop: 20,
   },
   image: {
