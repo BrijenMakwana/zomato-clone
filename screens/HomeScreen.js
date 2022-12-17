@@ -4,6 +4,7 @@ import Category from "../components/Category";
 import { categories } from "../assets/data/data";
 import SearchBar from "../components/SearchBar";
 import Banner from "../components/Banner";
+import OrderAgainContainer from "../components/OrderAgainContainer";
 
 const HomeScreen = () => {
   return (
@@ -23,6 +24,8 @@ const HomeScreen = () => {
       {/* banners */}
       <Banner image={require("../assets/images/banner_1.jpg")} />
       <Banner image={require("../assets/images/banner_2.jpg")} />
+      {/* order again */}
+      <OrderAgainContainer />
     </SafeAreaView>
   );
 };
