@@ -34,7 +34,7 @@ export default OrderAgainContainer;
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 12,
+    paddingTop: 12,
     width: "93%",
     alignSelf: "center",
   },

@@ -106,4 +106,79 @@ const orderAgainData = [
   },
 ];
 
-export { categories, orderAgainData };
+const dishes = [
+  {
+    id: "1",
+    image:
+      "https://www.indianhealthyrecipes.com/wp-content/uploads/2020/01/poha-500x500.jpg",
+    dishName: "Poha",
+  },
+  {
+    id: "2",
+    image:
+      "https://images.unsplash.com/photo-1619860860774-1e2e17343432?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    dishName: "sandwitch",
+  },
+  {
+    id: "3",
+    image:
+      "https://images.unsplash.com/photo-1653850280260-aa3b9e00b230?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    dishName: "Chaat",
+  },
+  {
+    id: "4",
+    image:
+      "https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    dishName: "Tea",
+  },
+  {
+    id: "5",
+    image:
+      "https://images.unsplash.com/photo-1597362925123-77861d3fbac7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    dishName: "Pure Veg",
+  },
+  {
+    id: "6",
+    image:
+      "https://images.unsplash.com/photo-1630383249896-424e482df921?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80",
+    dishName: "Vada",
+  },
+  {
+    id: "7",
+    image:
+      "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    dishName: "Idli",
+  },
+  {
+    id: "8",
+    image:
+      "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    dishName: "Dosa",
+  },
+  {
+    id: "9",
+    image:
+      "https://images.unsplash.com/photo-1631452180539-96aca7d48617?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    dishName: "paneer",
+  },
+  {
+    id: "10",
+    image:
+      "https://images.unsplash.com/photo-1549407981-2e656af56b4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    dishName: "rolls",
+  },
+  {
+    id: "11",
+    image:
+      "https://images.unsplash.com/photo-1601050690294-397f3c324515?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    dishName: "samosa",
+  },
+  {
+    id: "12",
+    image:
+      "https://images.unsplash.com/photo-1571091655789-405eb7a3a3a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80",
+    dishName: "burger",
+  },
+];
+
+export { categories, orderAgainData, dishes };

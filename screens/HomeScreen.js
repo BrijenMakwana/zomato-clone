@@ -1,14 +1,22 @@
-import { FlatList, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import React from "react";
 import Category from "../components/Category";
 import { categories } from "../assets/data/data";
 import SearchBar from "../components/SearchBar";
 import Banner from "../components/Banner";
 import OrderAgainContainer from "../components/OrderAgainContainer";
+import DishComponentContainer from "../components/DishComponentContainer";
 
 const HomeScreen = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       {/* search bar */}
       <SearchBar />
       {/* categories */}
@@ -26,7 +34,9 @@ const HomeScreen = () => {
       <Banner image={require("../assets/images/banner_2.jpg")} />
       {/* order again */}
       <OrderAgainContainer />
-    </SafeAreaView>
+      {/* dishes */}
+      <DishComponentContainer />
+    </ScrollView>
   );
 };
 
