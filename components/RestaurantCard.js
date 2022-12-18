@@ -4,27 +4,42 @@ import {
   FontAwesome,
   MaterialCommunityIcons,
   Feather,
-  Entypo,
+  Ionicons,
 } from "@expo/vector-icons";
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
+  const {
+    image,
+    restaurant,
+    duration,
+    distance,
+    bill,
+    rating,
+    discount,
+    isVeg,
+    totalOrder,
+    cuisines,
+  } = props;
+
   return (
     <View style={styles.container}>
       <Image
         source={{
-          uri: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+          uri: image,
         }}
         style={styles.image}
       />
       {/* isVeg */}
-      <View style={styles.vegContainer}>
-        <MaterialCommunityIcons name="leaf" size={15} color="#fff" />
-        <Text style={styles.vegText}>pure veg RESTAURANT</Text>
-      </View>
+      {isVeg && (
+        <View style={styles.vegContainer}>
+          <MaterialCommunityIcons name="leaf" size={15} color="#fff" />
+          <Text style={styles.vegText}>pure veg RESTAURANT</Text>
+        </View>
+      )}
 
       {/* like */}
       <View style={styles.likeContainer}>
-        <Feather name="heart" size={18} color="#FC7D86" />
+        <Feather name="heart" size={20} color="#FC7D86" />
       </View>
 
       {/* distance and duration */}
@@ -34,9 +49,9 @@ const RestaurantCard = () => {
           source={require("../assets/images/time.png")}
           style={styles.timerImage}
         />
-        <Text style={styles.duration}>36 min</Text>
+        <Text style={styles.duration}>{duration} min</Text>
         <Text style={{ fontSize: 13, paddingHorizontal: 4 }}>|</Text>
-        <Text style={styles.distance}>7 km</Text>
+        <Text style={styles.distance}>{distance} km</Text>
       </View>
 
       {/* discount */}
@@ -46,23 +61,42 @@ const RestaurantCard = () => {
           size={15}
           color="#fff"
         />
-        <Text style={styles.discount}>10% off</Text>
+        <Text style={styles.discount}>{discount}% off</Text>
       </View>
 
-      <View style={styles.RestaurantInfo}>
+      <View style={styles.restaurantInfo}>
         <View style={styles.restaurantDetails}>
           {/* restaurant name */}
-          <Text style={styles.restaurantName}>22nd Parallel</Text>
+          <Text style={styles.restaurantName}>{restaurant}</Text>
           {/* rating */}
           <View style={styles.ratingContainer}>
             {/* rating */}
-            <Text style={styles.rating}>4.2</Text>
+            <Text style={styles.rating}>{rating}</Text>
             <FontAwesome name="star" size={12} color="#fff" />
           </View>
         </View>
         <View style={styles.cuisineDetails}>
-          <Text style={styles.cuisine}>South Indian, Beverages</Text>
-          <Text style={styles.bill}>₹150 for one</Text>
+          <Text style={styles.cuisine}>
+            {cuisines.map((item) => {
+              return `${item}, `;
+            })}
+          </Text>
+          <Text style={styles.bill}>₹{bill} for one</Text>
+        </View>
+
+        {/* hr */}
+        <View
+          style={{ height: 0.1, backgroundColor: "gray", marginVertical: 10 }}
+        />
+
+        {/* total number of order placed so far */}
+        <View style={styles.totalOrder}>
+          <View style={styles.trendingIconContainer}>
+            <Ionicons name="trending-up" size={12} color="#fff" />
+          </View>
+          <Text style={styles.orderPlaced}>
+            {totalOrder}+ order placed from here recently
+          </Text>
         </View>
       </View>
     </View>
@@ -95,9 +129,9 @@ const styles = StyleSheet.create({
     right: 15,
     backgroundColor: "#fff",
     zIndex: 1,
-    width: 35,
-    height: 35,
-    borderRadius: 18,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
   },
   image: {
     width: "100%",
@@ -123,7 +157,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 10,
     textTransform: "uppercase",
-    fontWeight: "500",
+    fontWeight: "600",
   },
   timerContainer: {
     backgroundColor: "#fff",
@@ -164,10 +198,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft: 4,
   },
-
-  RestaurantInfo: {
-    paddingVertical: 20,
+  restaurantInfo: {
+    paddingTop: 20,
     paddingHorizontal: 15,
+    paddingBottom: 15,
   },
   restaurantDetails: {
     flexDirection: "row",
@@ -177,6 +211,7 @@ const styles = StyleSheet.create({
   restaurantName: {
     fontSize: 23,
     fontWeight: "500",
+    textTransform: "capitalize",
   },
   ratingContainer: {
     flexDirection: "row",
@@ -202,6 +237,26 @@ const styles = StyleSheet.create({
   cuisine: {
     fontSize: 15,
     fontWeight: "400",
+    textTransform: "capitalize",
   },
-  bill: { fontSize: 15, fontWeight: "400" },
+  bill: {
+    fontSize: 15,
+    fontWeight: "400",
+  },
+  totalOrder: {
+    flexDirection: "row",
+  },
+  trendingIconContainer: {
+    width: 20,
+    height: 20,
+    backgroundColor: "#707FBD",
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  orderPlaced: {
+    fontSize: 13.5,
+    marginLeft: 10,
+    color: "#505050",
+  },
 });

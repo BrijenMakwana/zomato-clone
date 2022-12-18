@@ -45,6 +45,8 @@ const restaurantData = [
     rating: 4.1,
     discount: 50,
     isVeg: true,
+    totalOrder: 5000,
+    cuisines: ["street foods", "mithai", "desserts"],
   },
   {
     id: "2",
@@ -57,6 +59,8 @@ const restaurantData = [
     rating: 4.5,
     discount: 10,
     isVeg: true,
+    totalOrder: 2000,
+    cuisines: ["fast food", "maharashtrian"],
   },
   {
     id: "3",
@@ -69,6 +73,8 @@ const restaurantData = [
     rating: 4.0,
     discount: 70,
     isVeg: false,
+    totalOrder: 2460,
+    cuisines: ["street foods", "chinese"],
   },
   {
     id: "4",
@@ -81,6 +87,8 @@ const restaurantData = [
     rating: 2.4,
     discount: 25,
     isVeg: true,
+    totalOrder: 8000,
+    cuisines: ["pizza"],
   },
   {
     id: "5",
@@ -93,6 +101,8 @@ const restaurantData = [
     rating: 3.9,
     discount: 14,
     isVeg: false,
+    totalOrder: 200,
+    cuisines: ["pizza", "fast food", "pasta"],
   },
   {
     id: "6",
@@ -105,6 +115,8 @@ const restaurantData = [
     rating: 3.2,
     discount: null,
     isVeg: false,
+    totalOrder: 1000,
+    cuisines: ["north indian", "chinese", "biryani"],
   },
   {
     id: "7",
@@ -117,6 +129,8 @@ const restaurantData = [
     rating: 4.1,
     discount: 70,
     isVeg: true,
+    totalOrder: 700,
+    cuisines: ["street foods"],
   },
   {
     id: "8",
@@ -129,6 +143,8 @@ const restaurantData = [
     rating: 1.0,
     discount: null,
     isVeg: true,
+    totalOrder: 1040,
+    cuisines: ["north indian", "chinese"],
   },
   {
     id: "9",
@@ -141,6 +157,8 @@ const restaurantData = [
     rating: 4.8,
     discount: 30,
     isVeg: false,
+    totalOrder: 50,
+    cuisines: ["street foods", "chinese", "north indian"],
   },
   {
     id: "10",
@@ -153,6 +171,8 @@ const restaurantData = [
     rating: 3.7,
     discount: null,
     isVeg: true,
+    totalOrder: 4009,
+    cuisines: ["pizza"],
   },
 ];
 
