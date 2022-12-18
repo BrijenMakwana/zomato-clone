@@ -14,6 +14,7 @@ import Banner from "../components/Banner";
 import OrderAgainContainer from "../components/OrderAgainContainer";
 import DishComponentContainer from "../components/DishComponentContainer";
 import FeaturedRestaurantsContainer from "../components/FeaturedRestaurantsContainer";
+import RestaurantCard from "../components/RestaurantCard";
 
 const HomeScreen = () => {
   return (
@@ -39,6 +40,10 @@ const HomeScreen = () => {
       <DishComponentContainer />
       {/* Featured restaurants */}
       <FeaturedRestaurantsContainer />
+      {/* Restaurants */}
+      <RestaurantCard />
+      <RestaurantCard />
+      <RestaurantCard />
     </ScrollView>
   );
 };
