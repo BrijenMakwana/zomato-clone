@@ -1,24 +1,25 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import OrderAgainComponent from "./OrderAgainComponent";
+import FeaturedRestaurant from "./FeaturedRestaurant";
 import { restaurantData } from "../assets/data/data";
 
-const OrderAgainContainer = () => {
+const FeaturedRestaurantsContainer = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.heading}>Order again</Text>
-        <Text style={styles.history}>view history</Text>
-      </View>
-
+      <Text style={styles.heading}>Featured restaurants</Text>
       <View style={styles.list}>
         <FlatList
           data={restaurantData}
           renderItem={({ item }) => (
-            <OrderAgainComponent
+            <FeaturedRestaurant
               image={item.image}
               restaurant={item.restaurant}
               duration={item.duration}
+              distance={item.distance}
+              rating={item.rating}
+              discount={item.discount}
+              isVeg={item.isVeg}
+              bill={item.bill}
             />
           )}
           keyExtractor={(item) => item.id}
@@ -30,29 +31,21 @@ const OrderAgainContainer = () => {
   );
 };
 
-export default OrderAgainContainer;
+export default FeaturedRestaurantsContainer;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 12,
     width: "93%",
     alignSelf: "center",
-  },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    marginTop: 20,
   },
   heading: {
     fontSize: 25,
     fontWeight: "bold",
   },
-  history: {
-    fontSize: 15,
-    fontWeight: "500",
-    color: "#E23946",
-  },
   list: {
-    marginTop: 5,
+    flexDirection: "row",
+    marginTop: 15,
+    paddingVertical: 10,
   },
 });
