@@ -16,6 +16,7 @@ import OrderAgainContainer from "../components/OrderAgainContainer";
 import DishComponentContainer from "../components/DishComponentContainer";
 import FeaturedRestaurantsContainer from "../components/FeaturedRestaurantsContainer";
 import RestaurantCard from "../components/RestaurantCard";
+import Header from "../components/Header";
 
 const HomeScreen = () => {
   return (
@@ -41,7 +42,10 @@ const HomeScreen = () => {
         showsVerticalScrollIndicator={false}
         ListHeaderComponent={
           <>
+            {/* header */}
+            <Header />
             {/* search bar */}
+
             <SearchBar />
             {/* categories */}
             <View style={styles.categories}>
@@ -53,6 +57,7 @@ const HomeScreen = () => {
                 showsHorizontalScrollIndicator={false}
               />
             </View>
+
             {/* banners */}
             <Banner image={require("../assets/images/banner_1.jpg")} />
             <Banner image={require("../assets/images/banner_2.jpg")} />
@@ -67,6 +72,7 @@ const HomeScreen = () => {
             </Text>
           </>
         }
+        // stickyHeaderIndices={[1]}
       />
     </View>
   );
