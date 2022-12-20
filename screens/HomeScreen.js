@@ -44,8 +44,8 @@ const HomeScreen = () => {
           <>
             {/* header */}
             <Header />
+            {/* TODO: make it sticky */}
             {/* search bar */}
-
             <SearchBar />
             {/* categories */}
             <View style={styles.categories}>
