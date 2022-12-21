@@ -34,7 +34,7 @@ export default OrderAgainContainer;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 12,
+    paddingTop: 10,
     width: "93%",
     alignSelf: "center",
   },
@@ -44,15 +44,13 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   heading: {
-    fontSize: 25,
+    fontSize: 18,
     fontWeight: "bold",
   },
   history: {
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: "500",
     color: "#E23946",
   },
-  list: {
-    marginTop: 5,
-  },
+  list: {},
 });

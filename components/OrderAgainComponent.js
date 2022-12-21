@@ -40,18 +40,18 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     paddingVertical: 10,
-    marginRight: 20,
+    marginRight: 10,
   },
   image: {
-    width: 80,
-    height: 80,
-    borderRadius: 10,
+    width: 65,
+    height: 65,
+    borderRadius: 7,
   },
   orderInfo: {
-    paddingLeft: 13,
+    paddingLeft: 10,
   },
   restaurantName: {
-    fontSize: 19,
+    fontSize: 15,
     fontWeight: "500",
     textTransform: "capitalize",
     width: 130,
@@ -59,21 +59,22 @@ const styles = StyleSheet.create({
   timerContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginTop: 5,
+    marginTop: 4,
   },
   timerImage: {
-    width: 20,
-    height: 20,
+    width: 15,
+    height: 15,
   },
   duration: {
-    fontSize: 12,
+    fontSize: 10,
     color: "#505050",
     marginLeft: 3,
+    fontWeight: "500",
   },
   offerText: {
-    marginTop: 7,
+    marginTop: 5,
     color: "#007FFF",
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: "400",
   },
 });
