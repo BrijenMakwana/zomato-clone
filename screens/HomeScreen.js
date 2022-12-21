@@ -93,9 +93,10 @@ const styles = StyleSheet.create({
     paddingLeft: 14,
   },
   restaurantCardHeading: {
-    fontSize: 25,
+    fontSize: 18,
     fontWeight: "bold",
     marginLeft: 15,
-    marginVertical: 7,
+    marginTop: 12,
+    marginBottom: 2,
   },
 });
