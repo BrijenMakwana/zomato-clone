@@ -9,7 +9,7 @@ import {
 const Header = () => {
   return (
     <View style={styles.container}>
-      <Ionicons name="location-sharp" size={35} color="#E23946" />
+      <Ionicons name="location-sharp" size={30} color="#E23946" />
       {/* location */}
       <View style={styles.locationContainer}>
         <Text style={styles.locationType}>Home</Text>
@@ -20,10 +20,10 @@ const Header = () => {
       <View style={styles.actionBtns}>
         <MaterialCommunityIcons
           name="checkbox-blank-badge-outline"
-          size={30}
+          size={25}
           color="black"
         />
-        <FontAwesome name="language" size={30} color="black" />
+        <FontAwesome name="language" size={25} color="black" />
       </View>
       <Image
         source={{
@@ -51,11 +51,12 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   locationType: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: "bold",
   },
   address: {
-    fontSize: 15,
+    fontSize: 12,
+    fontWeight: "400",
     color: "#505050",
     marginTop: 2,
   },
@@ -66,8 +67,8 @@ const styles = StyleSheet.create({
     width: 100,
   },
   userImage: {
-    width: 38,
-    height: 38,
+    width: 32,
+    height: 32,
     borderRadius: 20,
     resizeMode: "cover",
   },
