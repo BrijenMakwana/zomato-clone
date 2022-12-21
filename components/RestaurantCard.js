@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import {
   FontAwesome,
@@ -6,6 +6,7 @@ import {
   Feather,
   Ionicons,
 } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const RestaurantCard = (props) => {
   const {
@@ -21,8 +22,13 @@ const RestaurantCard = (props) => {
     cuisines,
   } = props;
 
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.container}>
+    <Pressable
+      style={styles.container}
+      onPress={() => navigation.navigate("Restaurant")}
+    >
       <Image
         source={{
           uri: image,
@@ -99,7 +105,7 @@ const RestaurantCard = (props) => {
           </Text>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

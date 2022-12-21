@@ -33,7 +33,7 @@ const RestaurantHead = () => {
             <Text style={styles.rating}>4.3</Text>
             <FontAwesome
               name="star"
-              size={16}
+              size={13}
               color="#fff"
               style={{ marginLeft: 3 }}
             />
@@ -62,8 +62,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 20,
     alignSelf: "center",
-    paddingVertical: 20,
-    paddingHorizontal: 15,
+    paddingVertical: 15,
+    paddingHorizontal: 10,
+    marginTop: 10,
   },
   restaurantDetails: {
     flexDirection: "row",
@@ -73,24 +74,24 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   restaurantName: {
-    fontSize: 25,
+    fontSize: 20,
     fontWeight: "600",
   },
   cuisine: {
-    fontSize: 14,
-    marginTop: 5,
+    fontSize: 11,
+    marginTop: 3,
     color: "#202020",
     fontWeight: "400",
     textTransform: "capitalize",
   },
   locationContainer: {
-    marginTop: 5,
+    marginTop: 3,
     flexDirection: "row",
     alignItems: "flex-start",
   },
   location: {
     color: "#606060",
-    fontSize: 13,
+    fontSize: 11,
     fontWeight: "300",
     textTransform: "capitalize",
   },
@@ -100,38 +101,40 @@ const styles = StyleSheet.create({
   },
   timerContainer: {
     flexDirection: "row",
-    marginTop: 5,
+    marginTop: 3,
     alignItems: "center",
   },
   timerImage: {
-    width: 20,
-    height: 20,
+    width: 13,
+    height: 13,
   },
   duration: {
-    fontSize: 14,
+    fontSize: 11,
     marginLeft: 3,
+    fontWeight: "500",
   },
   distance: {
-    fontSize: 14,
+    fontSize: 11,
+    fontWeight: "500",
   },
   ratingContainer: {
-    height: 75,
-    width: 78,
-    borderRadius: 20,
+    height: 70,
+    width: 65,
+    borderRadius: 10,
     borderWidth: 0.2,
     borderColor: "#787878",
   },
   ratingTopContainer: {
     backgroundColor: "#259547",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
     height: "50%",
   },
   rating: {
-    fontSize: 23,
+    fontSize: 16,
     color: "#fff",
     fontWeight: "600",
   },
@@ -139,12 +142,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingTop: 3,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
   },
   totalReviews: {
-    fontSize: 14,
+    fontSize: 12,
   },
   reviews: {
-    fontSize: 11,
+    fontSize: 9,
     textTransform: "capitalize",
     color: "#606060",
   },
