@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     alignItems: "center",
     justifyContent: "space-between",
-    paddingBottom: 20,
+    paddingBottom: 25,
   },
   locationContainer: {
     flex: 1,
