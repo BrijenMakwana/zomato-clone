@@ -20,8 +20,9 @@ const FeaturedRestaurant = (props) => {
   } = props;
   return (
     <View style={styles.container}>
+      {/* like */}
       <View style={styles.likeContainer}>
-        <Feather name="heart" size={18} color="#FC7D86" />
+        <Feather name="heart" size={16} color="#FC7D86" />
       </View>
       <Image
         source={{
@@ -29,9 +30,11 @@ const FeaturedRestaurant = (props) => {
         }}
         style={styles.image}
       />
+
+      {/* veg */}
       {isVeg && (
         <View style={styles.vegContainer}>
-          <MaterialCommunityIcons name="leaf" size={15} color="green" />
+          <MaterialCommunityIcons name="leaf" size={13} color="green" />
           <Text style={styles.vegText}>pure veg</Text>
         </View>
       )}
@@ -41,7 +44,7 @@ const FeaturedRestaurant = (props) => {
           {/* name */}
           <Text
             style={styles.restaurantName}
-            numberOfLines={1}
+            numberOfLines={2}
             ellipsizeMode="tail"
           >
             {restaurant}
@@ -49,7 +52,7 @@ const FeaturedRestaurant = (props) => {
           <View style={styles.ratingContainer}>
             {/* rating */}
             <Text style={styles.rating}>{rating}</Text>
-            <FontAwesome name="star" size={12} color="#fff" />
+            <FontAwesome name="star" size={10} color="#fff" />
           </View>
         </View>
         <View style={styles.orderInfo}>
@@ -59,21 +62,21 @@ const FeaturedRestaurant = (props) => {
           />
           {/* delivery stats */}
           <Text style={styles.time}>{duration} min</Text>
-          <Entypo name="dot-single" size={15} color="#282828" />
+          <Entypo name="dot-single" size={10} color="#282828" />
           <Text style={styles.time}>{distance} km</Text>
         </View>
         <View style={styles.billInfo}>
           <View
             style={{
               backgroundColor: "#FC7D86",
-              width: 12,
-              height: 12,
+              width: 10,
+              height: 10,
               alignItems: "center",
               justifyContent: "center",
               borderRadius: 6,
             }}
           >
-            <FontAwesome name="rupee" size={12} color="#fff" />
+            <FontAwesome name="rupee" size={10} color="#fff" />
           </View>
           {/* bill */}
           <Text style={styles.bill}>{bill} for one</Text>
@@ -85,7 +88,7 @@ const FeaturedRestaurant = (props) => {
         <View style={styles.discountContainer}>
           <MaterialCommunityIcons
             name="brightness-percent"
-            size={15}
+            size={12}
             color="#0059E4"
           />
           <Text style={styles.discount}>{discount}% off</Text>
@@ -99,9 +102,9 @@ export default FeaturedRestaurant;
 
 const styles = StyleSheet.create({
   container: {
-    width: 170,
+    width: 150,
     backgroundColor: "#fff",
-    height: 290,
+    height: 275,
     borderRadius: 20,
     shadowColor: "#000",
     shadowOffset: {
@@ -109,7 +112,7 @@ const styles = StyleSheet.create({
       width: 5,
     },
     shadowOpacity: 0.1,
-    elevation: 10,
+    elevation: 4,
     marginRight: 15,
     marginBottom: 10,
   },
@@ -117,12 +120,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
-    top: 20,
+    top: 10,
     right: 10,
     backgroundColor: "#fff",
     zIndex: 1,
-    width: 35,
-    height: 35,
+    width: 30,
+    height: 30,
     borderRadius: 18,
   },
   image: {
@@ -133,7 +136,7 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   restaurantInfo: {
-    padding: 10,
+    padding: 7,
   },
   restaurantDetails: {
     flexDirection: "row",
@@ -141,7 +144,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   restaurantName: {
-    fontSize: 13,
+    fontSize: 12,
+    flex: 1,
     fontWeight: "600",
   },
   ratingContainer: {
@@ -149,13 +153,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#259547",
-    padding: 5,
+    padding: 3,
     borderRadius: 4,
   },
   rating: {
-    fontSize: 12,
+    fontSize: 10,
     color: "#fff",
     fontWeight: "600",
+    marginRight: 1,
   },
   orderInfo: {
     flexDirection: "row",
@@ -163,12 +168,12 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   timerImage: {
-    width: 15,
-    height: 15,
-    marginRight: 5,
+    width: 12,
+    height: 12,
+    marginRight: 3,
   },
   time: {
-    fontSize: 13,
+    fontSize: 11,
     color: "#282828",
   },
   billInfo: {
@@ -177,14 +182,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   bill: {
-    fontSize: 13,
+    fontSize: 11,
     color: "#282828",
-    marginLeft: 5,
+    marginLeft: 3,
   },
   discountContainer: {
     flexDirection: "row",
     alignItems: "center",
-    paddingTop: 7,
+    paddingTop: 5,
     paddingLeft: 8,
     paddingBottom: 10,
     position: "absolute",
@@ -196,7 +201,7 @@ const styles = StyleSheet.create({
   },
   discount: {
     color: "#0059E4",
-    fontSize: 13,
+    fontSize: 10,
     marginLeft: 5,
     textTransform: "uppercase",
     fontWeight: "500",
@@ -209,11 +214,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "rgba(240,255,255,0.8)",
     width: "100%",
-    top: 120,
+    top: 114,
   },
   vegText: {
     color: "#259547",
-    fontSize: 14,
+    fontSize: 10,
     marginLeft: 5,
     textTransform: "capitalize",
     fontWeight: "500",

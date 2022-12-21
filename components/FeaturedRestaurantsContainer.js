@@ -40,12 +40,12 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   heading: {
-    fontSize: 25,
+    fontSize: 18,
     fontWeight: "bold",
   },
   list: {
     flexDirection: "row",
-    marginTop: 15,
+    marginTop: 2,
     paddingVertical: 10,
   },
 });
