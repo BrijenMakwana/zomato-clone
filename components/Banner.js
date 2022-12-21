@@ -16,12 +16,13 @@ const styles = StyleSheet.create({
   container: {
     width: "93%",
     alignSelf: "center",
-    marginVertical: 9,
+    marginVertical: 7,
+    height: 120,
   },
   image: {
     width: "100%",
-    height: 120,
+    height: "100%",
     borderRadius: 20,
-    resizeMode: "stretch",
+    resizeMode: "contain",
   },
 });
