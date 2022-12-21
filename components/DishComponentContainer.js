@@ -26,17 +26,16 @@ const styles = StyleSheet.create({
   container: {
     width: "93%",
     alignSelf: "center",
-
-    paddingTop: 13,
+    paddingTop: 10,
   },
   heading: {
-    fontSize: 25,
+    fontSize: 18,
     fontWeight: "bold",
   },
   dishes: {
     flexDirection: "row",
     flexWrap: "wrap",
-    marginTop: 5,
+    marginTop: 10,
     justifyContent: "space-between",
   },
 });

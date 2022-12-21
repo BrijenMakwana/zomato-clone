@@ -21,18 +21,18 @@ export default DishComponent;
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    marginTop: 20,
+    marginVertical: 16,
   },
   image: {
-    width: 80,
-    height: 80,
+    width: 72,
+    height: 72,
     borderRadius: 40,
   },
   dishName: {
-    fontSize: 15,
+    fontSize: 11,
     fontWeight: "500",
     color: "#303030",
-    marginTop: 10,
+    marginTop: 12,
     textTransform: "capitalize",
   },
 });
