@@ -1,6 +1,7 @@
 import {
   FlatList,
   InteractionManager,
+  Platform,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -20,7 +21,7 @@ import Header from "../components/Header";
 
 const HomeScreen = () => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* Restaurants */}
 
       <FlatList
@@ -74,7 +75,7 @@ const HomeScreen = () => {
         }
         // stickyHeaderIndices={[1]}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -84,6 +85,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
     flex: 1,
+    paddingTop: Platform.OS === "android" ? 50 : 0,
   },
   categories: {
     flexDirection: "row",
