@@ -35,23 +35,24 @@ export default Category;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
-    borderWidth: 2,
+    borderWidth: 0.3,
     borderStyle: "solid",
-    borderRadius: 13,
-    borderColor: "lightgray",
-    padding: 7,
+    borderRadius: 10,
+    borderColor: "gray",
+    paddingVertical: 6,
+    paddingHorizontal: 7,
     alignItems: "center",
     justifyContent: "center",
-    marginLeft: 10,
+    marginRight: 8,
     flexDirection: "row",
   },
   leftIcon: {
     marginRight: 5,
   },
   title: {
-    fontSize: 12,
+    fontSize: 10,
     textTransform: "capitalize",
-    fontWeight: "400",
+    fontWeight: "600",
   },
   rightIcon: {
     marginLeft: 7,

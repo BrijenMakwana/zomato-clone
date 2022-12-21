@@ -89,8 +89,8 @@ const styles = StyleSheet.create({
   },
   categories: {
     flexDirection: "row",
-    paddingVertical: 13,
-    paddingLeft: 8,
+    paddingVertical: 8,
+    paddingLeft: 14,
   },
   restaurantCardHeading: {
     fontSize: 25,
