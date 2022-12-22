@@ -49,7 +49,7 @@ const Dish = () => {
           <Feather
             name="plus"
             size={13}
-            color="##E94657"
+            color="#E94657"
             style={{ position: "absolute", right: 3, top: 3 }}
           />
         </Pressable>
@@ -137,17 +137,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#FFF6F7",
     justifyContent: "center",
-    paddingVertical: 6,
-    width: 120,
+    paddingVertical: 8,
+    width: 115,
     position: "absolute",
-    bottom: 8,
-    left: 11,
+    bottom: -6,
+    left: 13,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: "##E94657",
+    borderColor: "#E94657",
   },
   btnText: {
-    color: "##E94657",
+    color: "#E94657",
     fontWeight: "700",
     textTransform: "uppercase",
     fontSize: 17,

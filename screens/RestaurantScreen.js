@@ -2,15 +2,16 @@ import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import RestaurantHead from "../components/RestaurantHead";
 import Dish from "../components/Dish";
+import DishCategory from "../components/DishCategory";
 
 const RestaurantScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <RestaurantHead />
       <View style={styles.dishes}>
-        <Dish />
-        <Dish />
-        <Dish />
+        <DishCategory />
+        <DishCategory />
+        <DishCategory />
       </View>
     </SafeAreaView>
   );
@@ -25,7 +26,6 @@ const styles = StyleSheet.create({
   },
   dishes: {
     marginTop: 10,
-    backgroundColor: "#fff",
     flex: 1,
   },
 });
