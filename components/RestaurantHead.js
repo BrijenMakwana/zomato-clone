@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import React from "react";
 import { FontAwesome } from "@expo/vector-icons";
 import Coupon from "./Coupon";
+import { coupons } from "../assets/data/data";
 
 const RestaurantHead = () => {
   return (
@@ -47,9 +48,15 @@ const RestaurantHead = () => {
 
       {/* Coupons */}
 
-      <View style={styles.couponList}>
-        <Coupon />
-      </View>
+      <ScrollView
+        style={styles.couponList}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      >
+        {coupons.map((item) => (
+          <Coupon key={item.id} offer={item.offer} code={item.code} />
+        ))}
+      </ScrollView>
     </View>
   );
 };
@@ -152,5 +159,9 @@ const styles = StyleSheet.create({
     fontSize: 9,
     textTransform: "capitalize",
     color: "#606060",
+  },
+  couponList: {
+    flexDirection: "row",
+    marginTop: 10,
   },
 });

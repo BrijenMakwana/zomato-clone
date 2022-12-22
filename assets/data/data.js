@@ -251,4 +251,32 @@ const dishes = [
   },
 ];
 
-export { categories, restaurantData, dishes };
+const coupons = [
+  {
+    id: "1",
+    offer: "20% OFF up to ₹50",
+    code: "use code TRYNEW",
+  },
+  {
+    id: "2",
+    offer: "Free Delivery",
+    code: "above ₹1000",
+  },
+  {
+    id: "3",
+    offer: "Flat ₹100 OFF",
+    code: "use code ONECARDNEW",
+  },
+  {
+    id: "4",
+    offer: "up to ₹100 Mobikwik",
+    code: "use code MBKFEST",
+  },
+  {
+    id: "5",
+    offer: "Flat ₹150 OFF",
+    code: "use code CITI150",
+  },
+];
+
+export { categories, restaurantData, dishes, coupons };
