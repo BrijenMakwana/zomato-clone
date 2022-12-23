@@ -4,13 +4,19 @@ import { FontAwesome } from "@expo/vector-icons";
 import Coupon from "./Coupon";
 import { coupons } from "../assets/data/data";
 
-const RestaurantHead = () => {
+const RestaurantHead = (props) => {
+  const { restaurant, cuisines, duration, distance, rating } = props;
+
   return (
     <View style={styles.container}>
       <View style={styles.restaurantDetails}>
         <View style={styles.restaurantInfo}>
-          <Text style={styles.restaurantName}>22nd Parallel</Text>
-          <Text style={styles.cuisine}>South Indian, Beverages</Text>
+          <Text style={styles.restaurantName}>{restaurant}</Text>
+          <Text style={styles.cuisine}>
+            {cuisines.map((item) => {
+              return `${item}, `;
+            })}
+          </Text>
           <View style={styles.locationContainer}>
             <Text style={styles.location}>Alkapuri, Vadodara</Text>
             <FontAwesome name="sort-down" size={14} style={styles.rightIcon} />
@@ -20,18 +26,18 @@ const RestaurantHead = () => {
               source={require("../assets/images/time.png")}
               style={styles.timerImage}
             />
-            <Text style={styles.duration}>36 min</Text>
+            <Text style={styles.duration}>{duration} min</Text>
             <Text
               style={{ fontSize: 13, paddingHorizontal: 7, color: "lightgray" }}
             >
               |
             </Text>
-            <Text style={styles.distance}>7 km away</Text>
+            <Text style={styles.distance}>{distance} km away</Text>
           </View>
         </View>
         <View style={styles.ratingContainer}>
           <View style={styles.ratingTopContainer}>
-            <Text style={styles.rating}>4.3</Text>
+            <Text style={styles.rating}>{rating}</Text>
             <FontAwesome
               name="star"
               size={13}

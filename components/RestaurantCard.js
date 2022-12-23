@@ -27,7 +27,15 @@ const RestaurantCard = (props) => {
   return (
     <Pressable
       style={styles.container}
-      onPress={() => navigation.navigate("Restaurant")}
+      onPress={() =>
+        navigation.navigate("Restaurant", {
+          restaurant,
+          cuisines,
+          duration,
+          distance,
+          rating,
+        })
+      }
     >
       <Image
         source={{

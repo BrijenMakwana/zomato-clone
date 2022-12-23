@@ -5,13 +5,22 @@ import Dish from "../components/Dish";
 import DishCategory from "../components/DishCategory";
 import { restaurantMenu } from "../assets/data/data";
 import MenuFAB from "../components/MenuFAB";
+import { useRoute } from "@react-navigation/native";
 
 const RestaurantScreen = () => {
+  const route = useRoute();
+  const { restaurant, cuisines, duration, distance, rating } = route.params;
   return (
     <>
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
         {/* restaurant header */}
-        <RestaurantHead />
+        <RestaurantHead
+          restaurant={restaurant}
+          cuisines={cuisines}
+          duration={duration}
+          distance={distance}
+          rating={rating}
+        />
 
         {/* food menu */}
         <View style={styles.dishes}>

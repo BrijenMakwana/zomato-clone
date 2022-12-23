@@ -3,16 +3,8 @@ import React from "react";
 import { Feather, MaterialCommunityIcons, Entypo } from "@expo/vector-icons";
 
 const Dish = (props) => {
-  const {
-    id,
-    dishName,
-    dishImage,
-    isBestSeller,
-    rating,
-    reviews,
-    price,
-    about,
-  } = props;
+  const { dishName, dishImage, isBestSeller, rating, reviews, price, about } =
+    props;
 
   return (
     <View style={styles.container}>
