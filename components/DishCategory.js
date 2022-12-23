@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import Dish from "./Dish";
 import { MaterialIcons } from "@expo/vector-icons";
 
-const DishCategory = () => {
+const DishCategory = (props) => {
   const [isExpand, setIsExpand] = useState(true);
+  const { categoryName, dishes } = props;
 
   const toggleExpand = () => {
     setIsExpand(!isExpand);
@@ -14,7 +15,7 @@ const DishCategory = () => {
     <View style={styles.container}>
       <Pressable style={styles.expandContainer} onPress={toggleExpand}>
         {/* dish category */}
-        <Text style={styles.dishCategory}>south indian dishes</Text>
+        <Text style={styles.dishCategory}>{categoryName}</Text>
 
         {/* expand icons */}
         <MaterialIcons
@@ -24,14 +25,19 @@ const DishCategory = () => {
         />
       </Pressable>
 
-      {/* dishes */}
-      {isExpand && (
-        <>
-          <Dish />
-          <Dish />
-          <Dish />
-        </>
-      )}
+      {isExpand &&
+        dishes.map((item) => (
+          <Dish
+            key={item.id}
+            dishName={item.dishName}
+            dishImage={item.dishImage}
+            isBestSeller={item.isBestSeller}
+            rating={item.rating}
+            reviews={item.reviews}
+            price={item.price}
+            about={item.about}
+          />
+        ))}
     </View>
   );
 };
@@ -53,7 +59,7 @@ const styles = StyleSheet.create({
   dishCategory: {
     flex: 1,
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: "bold",
     textTransform: "capitalize",
     borderLeftWidth: 3,
     borderLeftColor: "#E94657",

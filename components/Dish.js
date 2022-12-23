@@ -2,7 +2,18 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Feather, MaterialCommunityIcons, Entypo } from "@expo/vector-icons";
 
-const Dish = () => {
+const Dish = (props) => {
+  const {
+    id,
+    dishName,
+    dishImage,
+    isBestSeller,
+    rating,
+    reviews,
+    price,
+    about,
+  } = props;
+
   return (
     <View style={styles.container}>
       <View style={styles.dishInfo}>
@@ -12,34 +23,46 @@ const Dish = () => {
             size={20}
             color="#259547"
           />
-          <View style={styles.bestSellerContainer}>
-            <Text style={styles.bestSellerText}>bestseller</Text>
-          </View>
+          {isBestSeller && (
+            <View style={styles.bestSellerContainer}>
+              <Text style={styles.bestSellerText}>bestseller</Text>
+            </View>
+          )}
         </View>
         {/* dish name */}
-        <Text style={styles.dishName}>guntur idli</Text>
+        <Text style={styles.dishName}>{dishName}</Text>
         <View style={styles.ratingAndReviews}>
           <View style={styles.ratingContainer}>
-            <Entypo name="star" size={14} color="#F5C033" />
-            <Entypo name="star" size={14} color="#F5C033" />
-            <Entypo name="star" size={14} color="#F5C033" />
-            <Entypo name="star" size={14} color="#F5C033" />
-            <Entypo name="star" size={14} color="#F5C033" />
+            {[1, 2, 3, 4, 5].map((item, index) => {
+              if (item <= rating) {
+                return (
+                  <Entypo name="star" size={14} color="#F5C033" key={index} />
+                );
+              } else {
+                return (
+                  <Entypo
+                    name="star-outlined"
+                    size={14}
+                    color="lightgray"
+                    key={index}
+                  />
+                );
+              }
+            })}
           </View>
-          <Text style={styles.reviews}>171 reviews</Text>
+          <Text style={styles.reviews}>{reviews} reviews</Text>
         </View>
         {/* price */}
-        <Text style={styles.dishPrice}>₹110</Text>
+        <Text style={styles.dishPrice}>₹{price}</Text>
         <Text style={styles.aboutDish} numberOfLines={3}>
-          Idli is a type of savoury rice cake, originating from the South
-          India,popular as breakfast foods in Southern India and in Sri Lanka.
+          {about}
         </Text>
       </View>
       <View style={styles.dishImageContainer}>
         {/* dish image */}
         <Image
           source={{
-            uri: "https://images.unsplash.com/photo-1619860860774-1e2e17343432?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            uri: dishImage,
           }}
           style={styles.dishImage}
         />

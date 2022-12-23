@@ -1,19 +1,24 @@
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import RestaurantHead from "../components/RestaurantHead";
 import Dish from "../components/Dish";
 import DishCategory from "../components/DishCategory";
+import { restaurantMenu } from "../assets/data/data";
 
 const RestaurantScreen = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <RestaurantHead />
       <View style={styles.dishes}>
-        <DishCategory />
-        <DishCategory />
-        <DishCategory />
+        {restaurantMenu.map((item) => (
+          <DishCategory
+            key={item.id}
+            categoryName={item.categoryName}
+            dishes={item.dishes}
+          />
+        ))}
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
