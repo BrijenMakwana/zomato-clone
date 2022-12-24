@@ -81,6 +81,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     backgroundColor: "#fff",
     paddingVertical: 25,
+    borderBottomWidth: 1,
+    borderBottomColor: "lightgray",
+    borderStyle: "dashed",
   },
   dishInfo: {
     width: "60%",
