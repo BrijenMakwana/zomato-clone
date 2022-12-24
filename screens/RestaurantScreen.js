@@ -1,11 +1,19 @@
-import { FlatList, SafeAreaView, StyleSheet, View, Text } from "react-native";
-import React from "react";
+import {
+  FlatList,
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Text,
+  Pressable,
+} from "react-native";
+import React, { useEffect } from "react";
 import RestaurantHead from "../components/RestaurantHead";
 import DishCategory from "../components/DishCategory";
 import { restaurantMenu } from "../assets/data/data";
 import MenuFAB from "../components/MenuFAB";
-import { useRoute } from "@react-navigation/native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useRoute, useNavigation } from "@react-navigation/native";
+import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+import MenuSearch from "../components/MenuSearch";
 
 // veg or non-veg
 const FoodType = (props) => {
@@ -26,10 +34,27 @@ const FoodType = (props) => {
 };
 
 const RestaurantScreen = () => {
+  const navigation = useNavigation();
   const route = useRoute();
   const { restaurant, cuisines, duration, distance, rating } = route.params;
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => (
+        <Pressable onPress={() => navigation.goBack()}>
+          <MaterialIcons name="arrow-back-ios" size={24} color="black" />
+        </Pressable>
+      ),
+      headerRight: () => (
+        <View>
+          <MenuSearch />
+        </View>
+      ),
+    });
+  }, []);
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <FlatList
         data={restaurantMenu}
         renderItem={({ item }) => (

@@ -15,7 +15,9 @@ const DishCategory = (props) => {
     <View style={styles.container}>
       <Pressable style={styles.expandContainer} onPress={toggleExpand}>
         {/* dish category */}
-        <Text style={styles.dishCategory}>{categoryName}</Text>
+        <Text style={styles.dishCategory}>
+          {categoryName} ({dishes.length})
+        </Text>
 
         {/* expand icons */}
         <MaterialIcons
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
   dishCategory: {
     flex: 1,
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: "700",
     textTransform: "capitalize",
     borderLeftWidth: 3,
     borderLeftColor: "#E94657",

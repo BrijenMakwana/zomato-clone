@@ -18,7 +18,17 @@ export default function App() {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="Restaurant" component={RestaurantScreen} />
+        <Stack.Screen
+          name="Restaurant"
+          component={RestaurantScreen}
+          options={{
+            title: "",
+            headerStyle: {
+              backgroundColor: "#F4F6FB",
+            },
+            headerShadowVisible: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
