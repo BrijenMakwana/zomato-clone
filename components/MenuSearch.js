@@ -17,7 +17,6 @@ export default MenuSearch;
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 3,
     paddingHorizontal: 10,
     flexDirection: "row",
     alignItems: "center",
@@ -28,6 +27,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderWidth: 0.1,
     borderColor: "gray",
+    height: 35,
   },
   search: {},
   input: {

@@ -6,7 +6,7 @@ import {
   Text,
   Pressable,
 } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import RestaurantHead from "../components/RestaurantHead";
 import DishCategory from "../components/DishCategory";
 import { restaurantMenu } from "../assets/data/data";
@@ -46,8 +46,27 @@ const RestaurantScreen = () => {
         </Pressable>
       ),
       headerRight: () => (
-        <View>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
           <MenuSearch />
+          <Pressable
+            style={{
+              backgroundColor: "#fff",
+              width: 35,
+              height: 35,
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: 20,
+              marginLeft: 10,
+              borderWidth: 0.1,
+              borderColor: "gray",
+            }}
+          >
+            <MaterialCommunityIcons
+              name="dots-horizontal"
+              size={24}
+              color="black"
+            />
+          </Pressable>
         </View>
       ),
     });
