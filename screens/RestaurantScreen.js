@@ -5,6 +5,7 @@ import {
   View,
   Text,
   Pressable,
+  Modal,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import RestaurantHead from "../components/RestaurantHead";
@@ -12,8 +13,13 @@ import DishCategory from "../components/DishCategory";
 import { restaurantMenu } from "../assets/data/data";
 import MenuFAB from "../components/MenuFAB";
 import { useRoute, useNavigation } from "@react-navigation/native";
-import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+import {
+  MaterialCommunityIcons,
+  MaterialIcons,
+  AntDesign,
+} from "@expo/vector-icons";
 import MenuSearch from "../components/MenuSearch";
+import DishInfo from "../components/DishInfo";
 
 // veg or non-veg
 const FoodType = (props) => {
@@ -37,7 +43,9 @@ const RestaurantScreen = () => {
   const navigation = useNavigation();
   const route = useRoute();
   const { restaurant, cuisines, duration, distance, rating } = route.params;
+  const [isDishModalOpen, setIsDishModalOpen] = useState(false);
 
+  // header
   useEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
@@ -73,7 +81,9 @@ const RestaurantScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[styles.container, { opacity: isDishModalOpen ? 0.3 : 1 }]}
+    >
       <FlatList
         data={restaurantMenu}
         renderItem={({ item }) => (
@@ -81,6 +91,8 @@ const RestaurantScreen = () => {
             key={item.id}
             categoryName={item.categoryName}
             dishes={item.dishes}
+            isDishModalOpen={isDishModalOpen}
+            setIsDishModalOpen={setIsDishModalOpen}
           />
         )}
         keyExtractor={(item) => item.id}
@@ -110,6 +122,7 @@ const RestaurantScreen = () => {
         }
       />
       {/* menu fab button */}
+
       <MenuFAB />
     </SafeAreaView>
   );
