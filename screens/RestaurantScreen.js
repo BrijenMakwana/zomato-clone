@@ -17,6 +17,7 @@ import {
   MaterialCommunityIcons,
   MaterialIcons,
   AntDesign,
+  Entypo,
 } from "@expo/vector-icons";
 import MenuSearch from "../components/MenuSearch";
 import DishInfo from "../components/DishInfo";
@@ -36,6 +37,32 @@ const FoodType = (props) => {
         {type === "veg" ? "Veg" : "Non-veg"}
       </Text>
     </View>
+  );
+};
+
+// DishInfo modal buttons
+const AddItemBtns = (props) => {
+  const { price } = props;
+  return (
+    <Pressable style={styles.addItemBtnContainer}>
+      <View style={styles.quantityContainer}>
+        {/* add */}
+        <Pressable style={styles.quantityBtn}>
+          <Entypo name="minus" size={18} color="#E23946" />
+        </Pressable>
+        {/* quantity */}
+        <Text style={styles.quantity}>1</Text>
+        {/* remove */}
+        <Pressable style={styles.quantityBtn}>
+          <Entypo name="plus" size={18} color="#E23946" />
+        </Pressable>
+      </View>
+
+      {/* price calc */}
+      <Pressable style={styles.priceBtn}>
+        <Text style={styles.priceBtnText}>Add item ₹{price}</Text>
+      </Pressable>
+    </Pressable>
   );
 };
 
@@ -116,6 +143,7 @@ const RestaurantScreen = () => {
                 marginBottom: 10,
               }}
             >
+              {/* veg and non-veg */}
               <FoodType type="veg" />
               <FoodType type="nonveg" />
             </View>
@@ -152,6 +180,8 @@ const RestaurantScreen = () => {
               rating={dishInfo.rating}
               reviews={dishInfo.reviews}
             />
+            {/* action buttons */}
+            <AddItemBtns price={dishInfo.price} />
           </View>
         </View>
       </Modal>
@@ -199,5 +229,49 @@ const styles = StyleSheet.create({
     height: 500,
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
+  },
+  addItemBtnContainer: {
+    backgroundColor: "#fff",
+    marginTop: "auto",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: 12,
+  },
+  quantityContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#FFF6F7",
+    width: "30%",
+    borderRadius: 10,
+    justifyContent: "space-between",
+    borderWidth: 0.5,
+    borderColor: "#E23946",
+  },
+  quantityBtn: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+
+    paddingVertical: 15,
+  },
+  quantity: {
+    color: "#000",
+    fontSize: 15,
+    fontWeight: "600",
+    marginHorizontal: 10,
+  },
+  priceBtn: {
+    width: "65%",
+    backgroundColor: "#E23946",
+    paddingVertical: 15,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 10,
+  },
+  priceBtnText: {
+    color: "#fff",
+    fontSize: 15,
+    fontWeight: "600",
   },
 });

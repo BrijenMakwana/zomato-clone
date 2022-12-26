@@ -29,6 +29,7 @@ const Dish = (props) => {
       isBestSeller: isBestSeller,
       rating: rating,
       reviews: reviews,
+      price: price,
     });
   };
 
