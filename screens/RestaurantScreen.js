@@ -44,6 +44,7 @@ const RestaurantScreen = () => {
   const route = useRoute();
   const { restaurant, cuisines, duration, distance, rating } = route.params;
   const [isDishModalOpen, setIsDishModalOpen] = useState(false);
+  const [dishInfo, setDishInfo] = useState({});
 
   // header
   useEffect(() => {
@@ -91,8 +92,8 @@ const RestaurantScreen = () => {
             key={item.id}
             categoryName={item.categoryName}
             dishes={item.dishes}
-            isDishModalOpen={isDishModalOpen}
             setIsDishModalOpen={setIsDishModalOpen}
+            setDishInfo={setDishInfo}
           />
         )}
         keyExtractor={(item) => item.id}
@@ -121,6 +122,39 @@ const RestaurantScreen = () => {
           </>
         }
       />
+
+      {/* dish information modal */}
+      <Modal
+        visible={isDishModalOpen}
+        animationType="slide"
+        transparent={true}
+        onRequestClose={() => setIsDishModalOpen(false)}
+      >
+        <View
+          style={{
+            flex: 1,
+            justifyContent: "flex-end",
+          }}
+        >
+          {/* close button */}
+          <Pressable
+            style={styles.closeBtn}
+            onPress={() => setIsDishModalOpen(false)}
+          >
+            <AntDesign name="close" size={20} color="#fff" />
+          </Pressable>
+          <View style={styles.dishModal}>
+            {/* dish information */}
+            <DishInfo
+              dishName={dishInfo.dishName}
+              dishImage={dishInfo.dishImage}
+              isBestSeller={dishInfo.isBestSeller}
+              rating={dishInfo.rating}
+              reviews={dishInfo.reviews}
+            />
+          </View>
+        </View>
+      </Modal>
       {/* menu fab button */}
 
       <MenuFAB />
@@ -150,5 +184,20 @@ const styles = StyleSheet.create({
     marginLeft: 2,
     fontSize: 12,
     fontWeight: "500",
+  },
+  closeBtn: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#1C1C1C",
+    width: 40,
+    height: 40,
+    borderRadius: 25,
+    alignSelf: "center",
+  },
+  dishModal: {
+    backgroundColor: "#F4F6FB",
+    height: 500,
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
   },
 });

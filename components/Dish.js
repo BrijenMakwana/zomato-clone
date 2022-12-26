@@ -17,15 +17,23 @@ const Dish = (props) => {
     reviews,
     price,
     about,
-    isDishModalOpen,
     setIsDishModalOpen,
+    setDishInfo,
   } = props;
 
+  const openDishModal = () => {
+    setIsDishModalOpen(true);
+    setDishInfo({
+      dishName: dishName,
+      dishImage: dishImage,
+      isBestSeller: isBestSeller,
+      rating: rating,
+      reviews: reviews,
+    });
+  };
+
   return (
-    <Pressable
-      style={styles.container}
-      onPress={() => setIsDishModalOpen(true)}
-    >
+    <Pressable style={styles.container} onPress={openDishModal}>
       <View style={styles.dishInfo}>
         <View style={styles.veg}>
           <MaterialCommunityIcons
@@ -87,39 +95,6 @@ const Dish = (props) => {
           />
         </Pressable>
       </View>
-
-      {/* dish information modal */}
-      <Modal
-        visible={isDishModalOpen}
-        animationType="slide"
-        transparent={true}
-        onRequestClose={() => setIsDishModalOpen(false)}
-      >
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "flex-end",
-          }}
-        >
-          {/* close button */}
-          <Pressable
-            style={styles.closeBtn}
-            onPress={() => setIsDishModalOpen(false)}
-          >
-            <AntDesign name="close" size={20} color="#fff" />
-          </Pressable>
-          <View style={styles.dishModal}>
-            {/* dish information */}
-            <DishInfo
-              dishName={dishName}
-              dishImage={dishImage}
-              isBestSeller={isBestSeller}
-              rating={rating}
-              reviews={reviews}
-            />
-          </View>
-        </View>
-      </Modal>
     </Pressable>
   );
 };
@@ -221,20 +196,5 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     fontSize: 17,
     textAlign: "center",
-  },
-  closeBtn: {
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#1C1C1C",
-    width: 40,
-    height: 40,
-    borderRadius: 25,
-    alignSelf: "center",
-  },
-  dishModal: {
-    backgroundColor: "#F4F6FB",
-    height: 500,
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
   },
 });
