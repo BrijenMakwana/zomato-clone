@@ -72,6 +72,7 @@ const RestaurantScreen = () => {
   const { restaurant, cuisines, duration, distance, rating } = route.params;
   const [isDishModalOpen, setIsDishModalOpen] = useState(false);
   const [dishInfo, setDishInfo] = useState({});
+  const [openQuickMenu, setOpenQuickMenu] = useState(false);
 
   // header
   useEffect(() => {
@@ -185,9 +186,28 @@ const RestaurantScreen = () => {
           </View>
         </View>
       </Modal>
-      {/* menu fab button */}
+      {/* quick menu */}
+      {openQuickMenu && (
+        <View style={styles.quickMenuContainer}>
+          <Text style={styles.quickMenuHeading}>menu</Text>
+          <Text style={styles.quickMenuSubHeading}>
+            Quickly switch between different categories
+          </Text>
+          {/* menu */}
+          {restaurantMenu.map((item) => (
+            <View style={styles.menuItem} key={item.id}>
+              <Text style={styles.menuCategoryName}>{item.categoryName}</Text>
+              <Text style={styles.menuCategoryPrice}>{item.dishes.length}</Text>
+            </View>
+          ))}
+        </View>
+      )}
 
-      <MenuFAB />
+      {/* menu fab button */}
+      <MenuFAB
+        setOpenQuickMenu={setOpenQuickMenu}
+        openQuickMenu={openQuickMenu}
+      />
     </SafeAreaView>
   );
 };
@@ -273,5 +293,52 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 15,
     fontWeight: "600",
+  },
+  // quick menu styles
+  quickMenuContainer: {
+    position: "absolute",
+    alignSelf: "center",
+    backgroundColor: "#fff",
+    borderRadius: 15,
+    paddingHorizontal: 15,
+    paddingVertical: 20,
+    width: "92%",
+    shadowColor: "rgb(28,28,28)",
+    shadowOpacity: 0.5,
+    elevation: 5,
+    shadowOffset: {
+      height: 5,
+      width: 5,
+    },
+    bottom: 90,
+  },
+  quickMenuHeading: {
+    fontSize: 19,
+    fontWeight: "700",
+    textTransform: "capitalize",
+  },
+  quickMenuSubHeading: {
+    fontSize: 15,
+    color: "#585858",
+    marginTop: 10,
+    fontWeight: "400",
+  },
+  menuItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 20,
+  },
+  menuCategoryName: {
+    flex: 1,
+    fontSize: 15,
+    color: "#585858",
+    fontWeight: "500",
+    textTransform: "capitalize",
+  },
+  menuCategoryPrice: {
+    fontSize: 15,
+    color: "#585858",
+    fontWeight: "500",
   },
 });
