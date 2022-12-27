@@ -1,10 +1,24 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View, Pressable } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const OrderAgainComponent = (props) => {
-  const { image, restaurant, duration } = props;
+  const { image, restaurant, duration, cuisines, distance, rating } = props;
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.container}>
+    <Pressable
+      style={styles.container}
+      onPress={() =>
+        navigation.navigate("Restaurant", {
+          restaurant,
+          cuisines,
+          duration,
+          distance,
+          rating,
+        })
+      }
+    >
       <Image
         source={{
           uri: image,
@@ -30,7 +44,7 @@ const OrderAgainComponent = (props) => {
 
         <Text style={styles.offerText}>10% OFF up to ₹40</Text>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import {
   FontAwesome,
@@ -6,6 +6,7 @@ import {
   Feather,
   Entypo,
 } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const FeaturedRestaurant = (props) => {
   const {
@@ -17,9 +18,23 @@ const FeaturedRestaurant = (props) => {
     discount,
     isVeg,
     bill,
+    cuisines,
   } = props;
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.container}>
+    <Pressable
+      style={styles.container}
+      onPress={() =>
+        navigation.navigate("Restaurant", {
+          restaurant,
+          cuisines,
+          duration,
+          distance,
+          rating,
+        })
+      }
+    >
       {/* like */}
       <View style={styles.likeContainer}>
         <Feather name="heart" size={16} color="#FC7D86" />
@@ -94,7 +109,7 @@ const FeaturedRestaurant = (props) => {
           <Text style={styles.discount}>{discount}% off</Text>
         </View>
       )}
-    </View>
+    </Pressable>
   );
 };
 

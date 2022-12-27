@@ -19,6 +19,9 @@ const OrderAgainContainer = () => {
               image={item.image}
               restaurant={item.restaurant}
               duration={item.duration}
+              cuisines={item.cuisines}
+              distance={item.distance}
+              rating={item.rating}
             />
           )}
           keyExtractor={(item) => item.id}

@@ -20,6 +20,7 @@ const FeaturedRestaurantsContainer = () => {
               discount={item.discount}
               isVeg={item.isVeg}
               bill={item.bill}
+              cuisines={item.cuisines}
             />
           )}
           keyExtractor={(item) => item.id}
