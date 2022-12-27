@@ -110,7 +110,7 @@ const RestaurantScreen = () => {
 
   return (
     <SafeAreaView
-      style={[styles.container, { opacity: isDishModalOpen ? 0.3 : 1 }]}
+      style={[styles.container, { opacity: isDishModalOpen ? 0.2 : 1 }]}
     >
       <FlatList
         data={restaurantMenu}
