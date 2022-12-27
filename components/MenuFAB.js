@@ -1,15 +1,24 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const MenuFAB = () => {
+const MenuFAB = (props) => {
+  const { openQuickMenu, setOpenQuickMenu } = props;
+
   return (
-    <View style={styles.container}>
+    <Pressable
+      style={styles.container}
+      onPress={() => setOpenQuickMenu((prev) => !prev)}
+    >
       <Image
-        source={require("../assets/images/fab.jpg")}
+        source={
+          openQuickMenu
+            ? require("../assets/images/closeMenu.jpg")
+            : require("../assets/images/fab.jpg")
+        }
         style={styles.image}
       />
       <Text style={styles.btnText}>menu</Text>
-    </View>
+    </Pressable>
   );
 };
 
