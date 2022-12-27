@@ -1,14 +1,9 @@
-import { Image, Pressable, StyleSheet, Text, View, Modal } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
-import {
-  Feather,
-  MaterialCommunityIcons,
-  Entypo,
-  AntDesign,
-} from "@expo/vector-icons";
-import DishInfo from "./DishInfo";
+import { Feather, MaterialCommunityIcons, Entypo } from "@expo/vector-icons";
 
 const Dish = (props) => {
+  const [quantity, setQuantity] = useState(0);
   const {
     dishName,
     dishImage,
@@ -86,15 +81,39 @@ const Dish = (props) => {
           style={styles.dishImage}
         />
         {/* add button */}
-        <Pressable style={styles.btnContainer}>
-          <Text style={styles.btnText}>add</Text>
-          <Feather
-            name="plus"
-            size={13}
-            color="#E94657"
-            style={{ position: "absolute", right: 3, top: 3 }}
-          />
-        </Pressable>
+        {quantity === 0 ? (
+          <Pressable
+            style={styles.btnContainer}
+            onPress={() => setQuantity(quantity + 1)}
+          >
+            <Text style={styles.btnText}>add</Text>
+            <Feather
+              name="plus"
+              size={13}
+              color="#E94657"
+              style={{ position: "absolute", right: 3, top: 3 }}
+            />
+          </Pressable>
+        ) : (
+          <View style={styles.quantityContainer}>
+            {/* add */}
+            <Pressable
+              style={styles.quantityBtn}
+              onPress={() => setQuantity(quantity - 1)}
+            >
+              <Entypo name="minus" size={16} color="#fff" />
+            </Pressable>
+            {/* quantity */}
+            <Text style={styles.quantity}>{quantity}</Text>
+            {/* remove */}
+            <Pressable
+              style={styles.quantityBtn}
+              onPress={() => setQuantity(quantity + 1)}
+            >
+              <Entypo name="plus" size={16} color="#fff" />
+            </Pressable>
+          </View>
+        )}
       </View>
     </Pressable>
   );
@@ -197,5 +216,29 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     fontSize: 17,
     textAlign: "center",
+  },
+  quantityContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#FFF6F7",
+    width: 115,
+    borderRadius: 8,
+    justifyContent: "space-between",
+    backgroundColor: "#E23946",
+    position: "absolute",
+    bottom: -6,
+    left: 13,
+  },
+  quantityBtn: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 12,
+  },
+  quantity: {
+    color: "#fff",
+    fontSize: 15,
+    fontWeight: "600",
+    marginHorizontal: 10,
   },
 });
