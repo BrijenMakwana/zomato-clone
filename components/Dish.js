@@ -19,12 +19,14 @@ const Dish = (props) => {
   const openDishModal = () => {
     setIsDishModalOpen(true);
     setDishInfo({
-      dishName: dishName,
-      dishImage: dishImage,
-      isBestSeller: isBestSeller,
-      rating: rating,
-      reviews: reviews,
-      price: price,
+      dishName,
+      dishImage,
+      isBestSeller,
+      rating,
+      reviews,
+      price,
+      quantity,
+      setQuantity,
     });
   };
 

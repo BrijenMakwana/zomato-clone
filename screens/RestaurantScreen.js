@@ -42,25 +42,44 @@ const FoodType = (props) => {
 
 // DishInfo modal buttons
 const AddItemBtns = (props) => {
-  const { price } = props;
+  const { price, quantity, setQuantity, closeDishInfo } = props;
+  const [thisQuantity, setThisQuantity] = useState(1);
+
+  const addFoodItem = () => {
+    if (thisQuantity >= 10) return;
+    setThisQuantity((prev) => prev + 1);
+  };
+
+  const deleteFoodItem = () => {
+    if (thisQuantity <= 1) return;
+    setThisQuantity((prev) => prev - 1);
+  };
+
+  const addToOrder = () => {
+    setQuantity(quantity + thisQuantity);
+    closeDishInfo();
+  };
+
   return (
     <Pressable style={styles.addItemBtnContainer}>
       <View style={styles.quantityContainer}>
         {/* add */}
-        <Pressable style={styles.quantityBtn}>
+        <Pressable style={styles.quantityBtn} onPress={deleteFoodItem}>
           <Entypo name="minus" size={18} color="#E23946" />
         </Pressable>
         {/* quantity */}
-        <Text style={styles.quantity}>1</Text>
+        <Text style={styles.quantity}>{thisQuantity}</Text>
         {/* remove */}
-        <Pressable style={styles.quantityBtn}>
+        <Pressable style={styles.quantityBtn} onPress={addFoodItem}>
           <Entypo name="plus" size={18} color="#E23946" />
         </Pressable>
       </View>
 
       {/* price calc */}
-      <Pressable style={styles.priceBtn}>
-        <Text style={styles.priceBtnText}>Add item ₹{price}</Text>
+      <Pressable style={styles.priceBtn} onPress={addToOrder}>
+        <Text style={styles.priceBtnText}>
+          Add item ₹{price * thisQuantity}
+        </Text>
       </Pressable>
     </Pressable>
   );
@@ -108,6 +127,11 @@ const RestaurantScreen = () => {
       ),
     });
   }, []);
+
+  // close DishInfo modal
+  const closeDishInfo = () => {
+    setIsDishModalOpen(false);
+  };
 
   return (
     <SafeAreaView
@@ -166,10 +190,7 @@ const RestaurantScreen = () => {
           }}
         >
           {/* close button */}
-          <Pressable
-            style={styles.closeBtn}
-            onPress={() => setIsDishModalOpen(false)}
-          >
+          <Pressable style={styles.closeBtn} onPress={closeDishInfo}>
             <AntDesign name="close" size={20} color="#fff" />
           </Pressable>
           <View style={styles.dishModal}>
@@ -182,7 +203,12 @@ const RestaurantScreen = () => {
               reviews={dishInfo.reviews}
             />
             {/* action buttons */}
-            <AddItemBtns price={dishInfo.price} />
+            <AddItemBtns
+              price={dishInfo.price}
+              quantity={dishInfo.quantity}
+              setQuantity={dishInfo.setQuantity}
+              closeDishInfo={closeDishInfo}
+            />
           </View>
         </View>
       </Modal>
