@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
     width: 115,
     position: "absolute",
     bottom: -6,
-    left: 13,
+    left: 15,
     borderRadius: 8,
     borderWidth: 1,
     borderColor: "#E94657",
@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#E23946",
     position: "absolute",
     bottom: -6,
-    left: 13,
+    left: 15,
   },
   quantityBtn: {
     flex: 1,

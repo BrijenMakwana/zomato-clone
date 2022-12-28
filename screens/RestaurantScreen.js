@@ -85,6 +85,36 @@ const AddItemBtns = (props) => {
   );
 };
 
+// bill component
+const ShowTotalBillAmount = () => {
+  return (
+    <View
+      style={{
+        width: "100%",
+        marginTop: "auto",
+        backgroundColor: "#fff",
+        padding: 15,
+      }}
+    >
+      <Pressable style={styles.totalBillContainer}>
+        <View style={styles.totalAmountContainer}>
+          {/* total items */}
+          <Text style={styles.totalItems}>1 item</Text>
+          {/* total amount */}
+          <Text style={styles.totalAmount}>
+            ₹115 <Text style={{ fontSize: 9 }}>plus taxes</Text>
+          </Text>
+        </View>
+        {/* next */}
+        <View style={styles.nextContainer}>
+          <Text style={styles.nextText}>next</Text>
+          <MaterialIcons name="arrow-right" size={24} color="#fff" />
+        </View>
+      </Pressable>
+    </View>
+  );
+};
+
 const RestaurantScreen = () => {
   const navigation = useNavigation();
   const route = useRoute();
@@ -234,6 +264,9 @@ const RestaurantScreen = () => {
         setOpenQuickMenu={setOpenQuickMenu}
         openQuickMenu={openQuickMenu}
       />
+
+      {/* total order */}
+      <ShowTotalBillAmount />
     </SafeAreaView>
   );
 };
@@ -365,6 +398,40 @@ const styles = StyleSheet.create({
   menuCategoryPrice: {
     fontSize: 15,
     color: "#585858",
+    fontWeight: "500",
+  },
+  // total bill amount styles
+  totalBillContainer: {
+    backgroundColor: "#E23946",
+    borderRadius: 5,
+    padding: 10,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+
+  totalAmountContainer: {
+    flex: 1,
+  },
+  totalItems: {
+    color: "#fff",
+    fontSize: 10,
+    textTransform: "uppercase",
+  },
+  totalAmount: {
+    color: "#fff",
+    fontSize: 13,
+    fontWeight: "500",
+    marginTop: 7,
+  },
+  nextContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  nextText: {
+    color: "#fff",
+    fontSize: 15,
+    textTransform: "capitalize",
     fontWeight: "500",
   },
 });
