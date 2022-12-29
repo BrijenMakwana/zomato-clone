@@ -87,7 +87,7 @@ const AddItemBtns = (props) => {
 
 // bill component
 const ShowTotalBillAmount = (props) => {
-  const { totalOrderItems } = props;
+  const { totalOrderItems, totalOrderAmount } = props;
 
   return (
     <View
@@ -106,7 +106,7 @@ const ShowTotalBillAmount = (props) => {
           </Text>
           {/* total amount */}
           <Text style={styles.totalAmount}>
-            ₹115 <Text style={{ fontSize: 9 }}>plus taxes</Text>
+            ₹{totalOrderAmount} <Text style={{ fontSize: 9 }}>plus taxes</Text>
           </Text>
         </View>
         {/* next */}
@@ -127,6 +127,7 @@ const RestaurantScreen = () => {
   const [dishInfo, setDishInfo] = useState({});
   const [openQuickMenu, setOpenQuickMenu] = useState(false);
   const [totalOrderItems, setTotalOrderItems] = useState(0);
+  const [totalOrderAmount, setTotalOrderAmount] = useState(0);
 
   // header
   useEffect(() => {
@@ -182,6 +183,7 @@ const RestaurantScreen = () => {
             setIsDishModalOpen={setIsDishModalOpen}
             setDishInfo={setDishInfo}
             setTotalOrderItems={setTotalOrderItems}
+            setTotalOrderAmount={setTotalOrderAmount}
           />
         )}
         keyExtractor={(item) => item.id}
@@ -283,7 +285,7 @@ const RestaurantScreen = () => {
       {totalOrderItems > 0 && (
         <ShowTotalBillAmount
           totalOrderItems={totalOrderItems}
-          setTotalOrderItems={setTotalOrderItems}
+          totalOrderAmount={totalOrderAmount}
         />
       )}
     </SafeAreaView>
