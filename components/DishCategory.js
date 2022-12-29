@@ -11,6 +11,7 @@ const DishCategory = (props) => {
     setIsDishModalOpen,
     setDishInfo,
     setTotalOrderItems,
+    setTotalOrderAmount,
   } = props;
 
   const toggleExpand = () => {
@@ -47,6 +48,7 @@ const DishCategory = (props) => {
             setIsDishModalOpen={setIsDishModalOpen}
             setDishInfo={setDishInfo}
             setTotalOrderItems={setTotalOrderItems}
+            setTotalOrderAmount={setTotalOrderAmount}
           />
         ))}
     </View>

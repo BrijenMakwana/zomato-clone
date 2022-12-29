@@ -15,6 +15,7 @@ const Dish = (props) => {
     setIsDishModalOpen,
     setDishInfo,
     setTotalOrderItems,
+    setTotalOrderAmount,
   } = props;
 
   const openDishModal = () => {
@@ -34,11 +35,13 @@ const Dish = (props) => {
   const addItem = () => {
     setQuantity(quantity + 1);
     setTotalOrderItems((prev) => prev + 1);
+    setTotalOrderAmount((prev) => prev + price);
   };
 
   const deleteItem = () => {
     setQuantity(quantity - 1);
     setTotalOrderItems((prev) => prev - 1);
+    setTotalOrderAmount((prev) => prev - price);
   };
 
   return (
