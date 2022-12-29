@@ -127,7 +127,7 @@ const RestaurantScreen = () => {
   useEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
-        <Pressable onPress={() => navigation.goBack()}>
+        <Pressable onPress={() => navigation.goBack()} style={{ width: 50 }}>
           <MaterialIcons name="arrow-back-ios" size={24} color="black" />
         </Pressable>
       ),
@@ -260,12 +260,14 @@ const RestaurantScreen = () => {
       )}
 
       {/* menu fab button */}
+      {/* TODO: move it up when bill amount visible */}
       <MenuFAB
         setOpenQuickMenu={setOpenQuickMenu}
         openQuickMenu={openQuickMenu}
       />
 
       {/* total order */}
+      {/* TODO: show only when quantity>0 */}
       <ShowTotalBillAmount />
     </SafeAreaView>
   );
