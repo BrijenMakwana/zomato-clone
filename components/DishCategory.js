@@ -5,7 +5,13 @@ import { MaterialIcons } from "@expo/vector-icons";
 
 const DishCategory = (props) => {
   const [isExpand, setIsExpand] = useState(true);
-  const { categoryName, dishes, setIsDishModalOpen, setDishInfo } = props;
+  const {
+    categoryName,
+    dishes,
+    setIsDishModalOpen,
+    setDishInfo,
+    setTotalOrderItems,
+  } = props;
 
   const toggleExpand = () => {
     setIsExpand(!isExpand);
@@ -40,6 +46,7 @@ const DishCategory = (props) => {
             about={item.about}
             setIsDishModalOpen={setIsDishModalOpen}
             setDishInfo={setDishInfo}
+            setTotalOrderItems={setTotalOrderItems}
           />
         ))}
     </View>

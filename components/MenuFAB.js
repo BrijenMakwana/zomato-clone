@@ -2,11 +2,11 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
 const MenuFAB = (props) => {
-  const { openQuickMenu, setOpenQuickMenu } = props;
+  const { openQuickMenu, setOpenQuickMenu, topPosition } = props;
 
   return (
     <Pressable
-      style={styles.container}
+      style={[styles.container, { top: topPosition }]}
       onPress={() => setOpenQuickMenu((prev) => !prev)}
     >
       <Image
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 15,
     justifyContent: "center",
-    top: 640,
+
     left: "35%",
     shadowColor: "rgb(28,28,28)",
     shadowOpacity: 0.5,

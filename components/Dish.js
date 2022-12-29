@@ -14,6 +14,7 @@ const Dish = (props) => {
     about,
     setIsDishModalOpen,
     setDishInfo,
+    setTotalOrderItems,
   } = props;
 
   const openDishModal = () => {
@@ -28,6 +29,16 @@ const Dish = (props) => {
       quantity,
       setQuantity,
     });
+  };
+
+  const addItem = () => {
+    setQuantity(quantity + 1);
+    setTotalOrderItems((prev) => prev + 1);
+  };
+
+  const deleteItem = () => {
+    setQuantity(quantity - 1);
+    setTotalOrderItems((prev) => prev - 1);
   };
 
   return (
@@ -84,10 +95,7 @@ const Dish = (props) => {
         />
         {/* add button */}
         {quantity === 0 ? (
-          <Pressable
-            style={styles.btnContainer}
-            onPress={() => setQuantity(quantity + 1)}
-          >
+          <Pressable style={styles.btnContainer} onPress={addItem}>
             <Text style={styles.btnText}>add</Text>
             <Feather
               name="plus"
@@ -99,19 +107,13 @@ const Dish = (props) => {
         ) : (
           <View style={styles.quantityContainer}>
             {/* add */}
-            <Pressable
-              style={styles.quantityBtn}
-              onPress={() => setQuantity(quantity - 1)}
-            >
+            <Pressable style={styles.quantityBtn} onPress={deleteItem}>
               <Entypo name="minus" size={16} color="#fff" />
             </Pressable>
             {/* quantity */}
             <Text style={styles.quantity}>{quantity}</Text>
             {/* remove */}
-            <Pressable
-              style={styles.quantityBtn}
-              onPress={() => setQuantity(quantity + 1)}
-            >
+            <Pressable style={styles.quantityBtn} onPress={addItem}>
               <Entypo name="plus" size={16} color="#fff" />
             </Pressable>
           </View>

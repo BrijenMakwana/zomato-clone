@@ -86,7 +86,9 @@ const AddItemBtns = (props) => {
 };
 
 // bill component
-const ShowTotalBillAmount = () => {
+const ShowTotalBillAmount = (props) => {
+  const { totalOrderItems } = props;
+
   return (
     <View
       style={{
@@ -99,7 +101,9 @@ const ShowTotalBillAmount = () => {
       <Pressable style={styles.totalBillContainer}>
         <View style={styles.totalAmountContainer}>
           {/* total items */}
-          <Text style={styles.totalItems}>1 item</Text>
+          <Text style={styles.totalItems}>
+            {totalOrderItems} {totalOrderItems === 1 ? "item" : "items"}
+          </Text>
           {/* total amount */}
           <Text style={styles.totalAmount}>
             ₹115 <Text style={{ fontSize: 9 }}>plus taxes</Text>
@@ -122,6 +126,7 @@ const RestaurantScreen = () => {
   const [isDishModalOpen, setIsDishModalOpen] = useState(false);
   const [dishInfo, setDishInfo] = useState({});
   const [openQuickMenu, setOpenQuickMenu] = useState(false);
+  const [totalOrderItems, setTotalOrderItems] = useState(0);
 
   // header
   useEffect(() => {
@@ -176,6 +181,7 @@ const RestaurantScreen = () => {
             dishes={item.dishes}
             setIsDishModalOpen={setIsDishModalOpen}
             setDishInfo={setDishInfo}
+            setTotalOrderItems={setTotalOrderItems}
           />
         )}
         keyExtractor={(item) => item.id}
@@ -244,7 +250,12 @@ const RestaurantScreen = () => {
       </Modal>
       {/* quick menu */}
       {openQuickMenu && (
-        <View style={styles.quickMenuContainer}>
+        <View
+          style={[
+            styles.quickMenuContainer,
+            { bottom: totalOrderItems > 0 ? 175 : 85 },
+          ]}
+        >
           <Text style={styles.quickMenuHeading}>menu</Text>
           <Text style={styles.quickMenuSubHeading}>
             Quickly switch between different categories
@@ -264,11 +275,17 @@ const RestaurantScreen = () => {
       <MenuFAB
         setOpenQuickMenu={setOpenQuickMenu}
         openQuickMenu={openQuickMenu}
+        topPosition={totalOrderItems > 0 ? 550 : 640}
       />
 
       {/* total order */}
       {/* TODO: show only when quantity>0 */}
-      <ShowTotalBillAmount />
+      {totalOrderItems > 0 && (
+        <ShowTotalBillAmount
+          totalOrderItems={totalOrderItems}
+          setTotalOrderItems={setTotalOrderItems}
+        />
+      )}
     </SafeAreaView>
   );
 };
@@ -371,7 +388,6 @@ const styles = StyleSheet.create({
       height: 5,
       width: 5,
     },
-    bottom: 90,
   },
   quickMenuHeading: {
     fontSize: 19,
