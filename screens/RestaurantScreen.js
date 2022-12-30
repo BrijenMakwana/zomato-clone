@@ -42,7 +42,14 @@ const FoodType = (props) => {
 
 // DishInfo modal buttons
 const AddItemBtns = (props) => {
-  const { price, quantity, setQuantity, closeDishInfo } = props;
+  const {
+    price,
+    quantity,
+    setQuantity,
+    closeDishInfo,
+    setTotalOrderItems,
+    setTotalOrderAmount,
+  } = props;
   const [thisQuantity, setThisQuantity] = useState(1);
 
   const addFoodItem = () => {
@@ -57,6 +64,9 @@ const AddItemBtns = (props) => {
 
   const addToOrder = () => {
     setQuantity(quantity + thisQuantity);
+    setTotalOrderItems((prev) => prev + thisQuantity);
+    // total amount to order
+    setTotalOrderAmount((prev) => prev + thisQuantity * price);
     closeDishInfo();
   };
 
@@ -246,6 +256,8 @@ const RestaurantScreen = () => {
               quantity={dishInfo.quantity}
               setQuantity={dishInfo.setQuantity}
               closeDishInfo={closeDishInfo}
+              setTotalOrderItems={setTotalOrderItems}
+              setTotalOrderAmount={setTotalOrderAmount}
             />
           </View>
         </View>
