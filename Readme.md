@@ -21,21 +21,21 @@
 ## Screenshots
 
 <div style="display:flex;flex-wrap:wrap;">
-<img src="./assets/images/Screenshots/preview_1.jpg" width="300" height="550"/>
-<img src="./assets/images/Screenshots/preview_2.jpg" width="300" height="550"/>
-<img src="./assets/images/Screenshots/preview_3.jpg" width="300" height="550"/>
-<img src="./assets/images/Screenshots/preview_4.jpg" width="300" height="550"/>
-<img src="./assets/images/Screenshots/preview_5.jpg" width="300" height="550"/>
-<img src="./assets/images/Screenshots/preview_6.jpg" width="300" height="550"/>
-<img src="./assets/images/Screenshots/preview_7.jpg" width="300" height="550"/>
-<img src="./assets/images/Screenshots/preview_8.jpg" width="300" height="550"/>
-<img src="./assets/images/Screenshots/preview_9.jpg" width="300" height="550"/>
-<img src="./assets/images/Screenshots/preview_10.jpg" width="300" height="550"/>
-<img src="./assets/images/Screenshots/preview_11.jpg" width="300" height="550"/>
-<img src="./assets/images/Screenshots/preview_12.jpg" width="300" height="550"/>
-<img src="./assets/images/Screenshots/preview_13.jpg" width="300" height="550"/>
-<img src="./assets/images/Screenshots/preview_14.jpg" width="300" height="550"/>
-<img src="./assets/images/Screenshots/preview_15.jpg" width="300" height="550"/>
+<img src="./assets/images/Screenshots/preview_1.jpg" width="300" height="650"/>
+<img src="./assets/images/Screenshots/preview_2.jpg" width="300" height="650"/>
+<img src="./assets/images/Screenshots/preview_3.jpg" width="300" height="650"/>
+<img src="./assets/images/Screenshots/preview_4.jpg" width="300" height="650"/>
+<img src="./assets/images/Screenshots/preview_5.jpg" width="300" height="650"/>
+<img src="./assets/images/Screenshots/preview_6.jpg" width="300" height="650"/>
+<img src="./assets/images/Screenshots/preview_7.jpg" width="300" height="650"/>
+<img src="./assets/images/Screenshots/preview_8.jpg" width="300" height="650"/>
+<img src="./assets/images/Screenshots/preview_9.jpg" width="300" height="650"/>
+<img src="./assets/images/Screenshots/preview_10.jpg" width="300" height="650"/>
+<img src="./assets/images/Screenshots/preview_11.jpg" width="300" height="650"/>
+<img src="./assets/images/Screenshots/preview_12.jpg" width="300" height="650"/>
+<img src="./assets/images/Screenshots/preview_13.jpg" width="300" height="650"/>
+<img src="./assets/images/Screenshots/preview_14.jpg" width="300" height="650"/>
+<img src="./assets/images/Screenshots/preview_15.jpg" width="300" height="650"/>
 </div>
 
 ## Run the project
