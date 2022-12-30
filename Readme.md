@@ -1,6 +1,6 @@
 <img src="./assets/icon.png" width="200" height="200"/>
 
-# Zomato App Clone (Shopping App)
+# Zomato App Clone (Food Delivery App)
 
 ## Table of contents
 
