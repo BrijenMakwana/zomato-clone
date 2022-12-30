@@ -1,9 +1,7 @@
 import {
   FlatList,
-  InteractionManager,
   Platform,
   SafeAreaView,
-  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -73,7 +71,6 @@ const HomeScreen = () => {
             </Text>
           </>
         }
-        // stickyHeaderIndices={[1]}
       />
     </SafeAreaView>
   );

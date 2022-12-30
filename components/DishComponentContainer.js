@@ -7,6 +7,7 @@ const DishComponentContainer = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Eat what makes you happy</Text>
+      {/* dishes */}
       <View style={styles.dishes}>
         {dishes.map((item, _) => (
           <DishComponent
